@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Dashboard</title>
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="Styles.css" />
+  <script src="Main.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__inner">
+         <span class="header__icon">✈️</span>
+         <h1 class="header__title">Travel Dashboard</h1>
+         <p id="header-subtitle" class="header__subtitle">Consulta información importante antes de viajar</p>
+         <button id="lang-btn" class="lang-btn">🌐 EN</button>
+        </div>
+    </header>
+
+    <section class="selector-section">
+        <div class="container">
+            <label id="selector-label" for="city-select" class="selector-label"> 🗺️ Selecciona tu destino</label>
+            <select id="city-select" class="city-select">
+                <option value="">-- Elige una ciudad --</option>
+                <option value="barcelona">Barcelona</option>
+                <option value="london">London</option>
+                <option value="paris">Paris</option>
+                <option value="newyork">New York</option>
+                <option value="tokyo">Tokyo</option>
+            </select>
+        </div>
+    </section>
+
+    <main id="dashboard" class="dashboard hidden">
+        <div class="container">
+
+            <!-- CARD RESUMEN DE CADA DESTINO -->
+            <section class="card summary-card">
+                <h2 id="summary-title" class="card__title">📋 Resumen del destino</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <span id="label-city" class="summary-item__label">🏙️ Ciudad</span>
+                        <span id="summary-city" class="summary-item__value">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span id="label-country" class="summary-item__label">🌍 País</span>
+                        <span id="summary-country" class="summary-item__value">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span id="label-temp" class="summary-item__label">🌡️ Temperatura</span>
+                        <span id="summary-temp" class="summary-item__value">-</span>
+                    </div>
+                    <div class="summary-item">
+                        <span id="label-currency" class="summary-item__label">💱 Moneda local</span>
+                        <span id="summary-currency" class="summary-item__value">-</span>
+                    </div>
+                 </div>
+            </section>
+
+            <!-- WIDGET METEOROLÓGICO -->
+            <section class="card weather-card">
+                <h2 id="weather-title" class="card__title">🌤️ Información meteorológica</h2>
+                <div id="weather-loading" class="loading-msg">Cargando datos del tiempo...</div>
+                <div id="weather-content" class="weather-grid hidden">
+                    <div class="weather-item">
+                            <span class="weather-item__icon">🌡️</span>
+                            <span id="label-temp-w" class="weather-item__label">Temperatura actual</span>
+                            <span id="weather-temp" class="weather-item__value">-</span>
+                    </div>
+                    <div class="weather-item">
+                            <span class="weather-item__icon">💧</span>
+                            <span id="label-rain" class="weather-item__label">Probabilidad de lluvia</span>
+                            <span id="weather-rain" class="weather-item__value">-</span>
+                    </div>
+                    <div class="weather-item">
+                            <span class="weather-item__icon">💨</span>
+                            <span id="label-wind" class="weather-item__label">Viento</span>
+                            <span id="weather-wind" class="weather-item__value">-</span>
+                    </div>
+                    <div class="weather-item">
+                            <span class="weather-item__icon">☁️</span>
+                            <span id="label-sky" class="weather-item__label">Estado del cielo</span>
+                            <span id="weather-desc" class="weather-item__value">-</span>
+                    </div>
+                </div>
+                <div id="weather-error" class="error-msg hidden">❌ No se pudo cargar el tiempo.</div>
+      </section>
+
+      <!-- WIDGET CONVERSIÓN DE MONEDA -->
+      <section class="card currency-card">
+        <h2 id="currency-title" class="card__title">💱 Conversión de moneda</h2>
+        <div class="currency-form">
+          <label id="currency-label-text" for="eur-amount" class="currency-label">Cantidad en EUR (€)</label>
+          <input
+            type="number"
+            id="eur-amount"
+            class="currency-input"
+            placeholder="Ej: 100"
+            min="0"
+            value="100"
+          />
+          <button id="convert-btn" class="convert-btn">Convertir</button>
+        </div>
+        <div id="currency-loading" class="loading-msg hidden">Cargando tasas de cambio...</div>
+        <div id="currency-result" class="currency-result hidden">
+          <p class="currency-result__line">
+            <span id="result-amount">-</span>
+            <span id="result-from">EUR</span>
+            →
+            <span id="result-to">-</span>
+            =
+            <strong id="result-converted">-</strong>
+          </p>
+        </div>
+        <div id="currency-error" class="error-msg hidden">❌ No se pudo cargar la conversión.</div>
+      </section>
+
+      </section>
+ 
+      <!-- MENSAJE / RECOMENDACIÓN DE VIAJE -->
+      <section class="card tip-card">
+        <h2 id="tip-title" class="card__title">✈️ Recomendación de viaje</h2>
+        <p id="travel-tip" class="travel-tip">Selecciona una ciudad para ver tu recomendación.</p>
+      </section>
+
+                   
+           
+
+        </div>
+
+        
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="footer">
+      <p id="footer-text">  Travel Dashboard · Datos en tiempo real · APIs: Open-Meteo & Frankfurter</p>
+    </footer>
+
+
+</body>
+</html>

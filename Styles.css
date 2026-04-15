@@ -1,0 +1,443 @@
+/* -------------------------------------------------------------
+   VARIABLES GLOBALES
+   ----------------------------------------------------------- */
+:root {
+  --color-bg: #0f1117;
+  --color-surface: #1a1d27;
+  --color-surface-2: #22263a;
+  --color-accent: #4f8ef7;
+  --color-accent-hover: #3a78e8;
+  --color-text: #e8eaf0;
+  --color-text-muted: #8b90a8;
+  --color-border: #2e3349;
+  --color-success: #34c77b;
+  --color-warning: #f5a623;
+  --color-danger: #e74c3c;
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --transition: 0.25s ease;
+  --font-main: 'Segoe UI', system-ui, sans-serif;
+}
+
+
+/* -------------------------------------------------------
+   BASE
+  -----------------------------------------------------*/
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+/* -----------------------------------------------------------
+   CONTENEDOR
+   ------------------------------------------------------------ */
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ------------------------------------------------------------
+   CABECERA
+   ------------------------------------------------------------ */
+.header {
+  background:
+    linear-gradient(135deg, rgba(26, 29, 39, 0.92) 0%, rgba(34, 40, 70, 0.92) 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-bottom: 1px solid var(--color-border);
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: background-image 0.4s ease;
+}
+ 
+.header__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+ 
+.header__icon {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+ 
+.header__title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--color-text);
+}
+ 
+.header__subtitle {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+/* ------------------------------------------------------------
+   BOTÓN DE IDIOMA
+   ------------------------------------------------------------ */
+.lang-btn {
+  margin-top: 1rem;
+  padding: 0.45rem 1.1rem;
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.lang-btn:hover {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+/* -----------------------------------------------------------
+   SELECTOR DE CIUDAD
+   ----------------------------------------------------------- */
+.selector-section {
+  padding: 1.5rem 1rem;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+ 
+.selector-label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+ 
+.city-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-surface-2);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238b90a8' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  transition: border-color var(--transition);
+}
+ 
+.city-select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+/* -----------------------------------------------------------
+   DASHBOARD PRINCIPAL
+   ----------------------------------------------------------- */
+.dashboard {
+  flex: 1;
+  padding: 1.5rem 0;
+}
+ 
+.dashboard .container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* -----------------------------------------------------------
+   CARDS GENÉRICAS
+   ----------------------------------------------------------- */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.35s ease;
+}
+ 
+.card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* -----------------------------------------------------------
+   CARD RESUMEN
+   ------------------------------------------------------------ */
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+ 
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background-color: var(--color-surface-2);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+}
+ 
+.summary-item__label {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+ 
+.summary-item__value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* -----------------------------------------------------------
+   CARD METEOROLÓGICA
+   ------------------------------------------------------------ */
+.weather-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+ 
+.weather-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  background-color: var(--color-surface-2);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1rem;
+}
+ 
+.weather-item__icon {
+  font-size: 1.4rem;
+}
+ 
+.weather-item__label {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+ 
+.weather-item__value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ----------------------------------------------------------
+   CARD CONVERSIÓN DE MONEDA
+   --------------------------------------------------------- */
+.currency-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+ 
+.currency-label {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+ 
+.currency-input {
+  padding: 0.75rem 1rem;
+  background-color: var(--color-surface-2);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 2rem;
+  width: 100%;
+  transition: border-color var(--transition);
+}
+ 
+.currency-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+ 
+.convert-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+ 
+.convert-btn:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+}
+ 
+.convert-btn:active {
+  transform: translateY(0);
+}
+ 
+.currency-result {
+  background-color: var(--color-surface-2);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  margin-top: 0.5rem;
+}
+ 
+.currency-result__line {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+ 
+.currency-result__line strong {
+  color: var(--color-success);
+  font-size: 1.3rem;
+}
+
+/* -------------------------------------------------------------
+   CARD RECOMENDACIÓN DE VIAJE
+   ------------------------------------------------------------ */
+.travel-tip {
+  font-size: 1rem;
+  color: var(--color-text);
+  background-color: var(--color-surface-2);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.2rem;
+  line-height: 1.7;
+}
+
+.travel-tip {
+  white-space: pre-line;
+}
+
+/* --------------------------------------------------------------
+   ESTADOS: loading, error, hidden
+   -------------------------------------------------------------- */
+.hidden {
+  display: none !important;
+}
+ 
+.loading-msg {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+ 
+.error-msg {
+  color: var(--color-danger);
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+}
+ 
+/* ----------------------------------------------------------
+   PIE DE PÁGINA
+   --------------------------------------------------------- */
+.footer {
+  text-align: center;
+  padding: 1.2rem 1rem;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  margin-top: auto;
+}
+ 
+/* --------------------------------------------------------------
+   ANIMACIONES
+   -------------------------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+ 
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+ 
+/* -----------------------------------------------------------
+   RESPONSIVE — Tablet y Desktop
+   ----------------------------------------------------------- */
+@media (min-width: 600px) {
+  .header__title {
+    font-size: 2.2rem;
+  }
+ 
+  .city-select {
+    max-width: 400px;
+  }
+ 
+  .currency-form {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+ 
+  .currency-input {
+    flex: 1;
+  }
+ 
+  .convert-btn {
+    white-space: nowrap;
+  }
+}
+ 
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+ 
+  .header {
+    padding: 2.5rem 2rem;
+  }
+ 
+  .selector-section {
+    padding: 1.5rem 2rem;
+  }
+ 
+  .dashboard {
+    padding: 2rem 0;
+  }
+ 
+  .dashboard .container {
+    gap: 1.5rem;
+  }
+ 
+  .summary-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+ 
+  .weather-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+
